@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $('.load').animate({'opacity': '0', 'z-index': '0'}, 1000);
+    // $('.load').animate({'opacity': '0', 'z-index': '0'}, 1000);
     $('.radious a').click(function(){
         $('.radious a').removeClass('active');
         $(this).addClass('active');
