@@ -7,8 +7,10 @@ body {
   font-size: 13px;
   color: #1d1c1c;
   letter-spacing: -.02em;
+  -webkit-animation: anim 1s ease-in-out;
   animation: anim 1s ease-in-out;
-  -webkit-animation: anim 1s ease-in-out; }
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
 
 @-webkit-keyframes anim {
   0% {
@@ -150,7 +152,7 @@ a, a:hover, a:active, a:focus {
     display: table-cell;
     vertical-align: middle; }
   #player #pp {
-    width: 60px;
+    width: 30px;
     padding-left: 30px;
     cursor: pointer; }
     #player #pp img {
@@ -159,9 +161,27 @@ a, a:hover, a:active, a:focus {
     display: block; }
   #player #pp.play .img-play {
     display: block; }
+  #player #pbar #time {
+    margin-left: 13px;
+    margin-left: 10px; }
+  #player #pbar #stationname {
+    font-size: 0; }
+    #player #pbar #stationname span {
+      font-size: 13px;
+      margin: 0 8px; }
+  #player #pbar span {
+    display: inline-block;
+    height: 39px;
+    line-height: 39px;
+    vertical-align: middle; }
+  #player #pbar img {
+    width: 39px;
+    height: 39px; }
   #player #volicon {
-    width: 86px;
-    padding-left: 30px; }
+    background: #fff;
+    width: 56px;
+    padding-left: 30px;
+    cursor: pointer; }
     #player #volicon img {
       display: none; }
   #player #volicon.muted .img-muted {
@@ -177,8 +197,9 @@ a, a:hover, a:active, a:focus {
     margin-left: 2px; }
 
 #vbar {
+  background: #fff;
   height: 100%;
-  width: 200px;
+  width: 170px;
   padding-right: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -202,7 +223,9 @@ input {
   height: 100%;
   min-height: 50px;
   overflow: hidden;
-  width: 240px; }
+  width: 100%;
+  padding: 0;
+  margin: 0; }
 
 input:focus {
   box-shadow: none;
