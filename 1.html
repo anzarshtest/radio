@@ -1,0 +1,52 @@
+
+<!-- saved from url=(0015)http://zvuk.bz/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><a href="http://zvuk.bz/#" onclick="Player.track(this);return false;" data-uri="http://icecast.russkoeradio.cdnvideo.ru/rr.mp3" data-title="Русское радио"><img src="./1_files/1.jpg"></a><a href="http://zvuk.bz/#" onclick="Player.track(this);return false;" data-uri="http://online.radiorecord.ru:8102/sd90_128" data-title="Супер-дискотека 90х"><img src="./1_files/2.jpg"></a><a href="http://zvuk.bz/#" onclick="Player.track(this);return false;" data-uri="http://dorognoe.hostingradio.ru:8000/radio" data-title="Дорожное радио"><img src="./1_files/3.jpg"></a>
+
+	
+		<title>Радио</title>
+		
+		<style>
+			#player {position:fixed;bottom:0;left:0;right:0;height:50px;}
+			#player div {display:inline-block;vertical-align:middle;}
+			#pp {height:48px;width:48px;text-align:center;line-height:48px;font-size:40px;cursor:pointer;border:1px solid #0080FF;border-radius:3px;display:inline-block;}
+			#pp.play:before {content:'▶️';display:block;}
+			#pp.pause:before {content:'⏸';display:block;}
+			#volicon {height:48px;width:48px;text-align:center;font-size:40px;cursor:pointer;line-height:40px;display:inline-block;}
+			#volicon:before {display:block;}
+			#volicon.muted:before {content:'🔇';}
+			#volicon.low:before {content:'🔈';}
+			#volicon.medium:before {content:'🔉';}
+			#volicon.high:before {content:'🔊';}
+			#pbar {width:80%;position:relative;height:50px;line-height:50px;background:#0080ff;border-radius:5px;text-align:center;color:white;}
+			#time {position:absolute;left:2px;top:0px;}
+		</style>
+	
+	
+		<div id="player">
+			<audio id="audio"></audio>
+			<div id="pp" class="play" onclick="Player.pp();"></div>
+			<div id="pbar">
+				<div id="time"></div>
+				<span id="stationname"></span>
+			</div>
+			<div id="volicon" onclick="Player.mute();" class="high"></div>
+			<div id="vbar"><input type="range" min="0" max="100" onchange="Player.vol(this.value);" oninput="Player.vol(this.value);" value="Player.audio.volume*100"></div>
+		</div>
+		
+		<script>
+			Player = {
+				init  : function(audio, pp, time, volicon, vbar, stname){this.audio = audio;this.ppcontrol = pp;this.volicon = volicon;this.timebox = time;this.vbar = vbar;this.stname = stname;this.updVol();},
+				vol   : function(i){this.audio.volume = i/100;this.updVol();},
+				updVol: function(){i = this.audio.volume;this.volicon.className = this.audio.muted ? 'muted' : (i > 0.3 ? (i > 0.6 ? 'high' : 'medium') : 'low');},
+				track : function(e){t = e.getAttribute('data-uri');n = e.getAttribute('data-title');this.audio.src = t;this.stname.innerHTML = n;this.play();},
+				play  : function(){if(this.audio.src == ''){this.stname.innerHTML = 'Пожалуйста, выберите станцию!';} else {this.audio.play();this.ppcontrol.className = 'pause';this.time();}},
+				pause : function(){this.audio.pause();this.ppcontrol.className = 'play';clearTimeout(this.timer);},
+				time  : function(){t = this.audio.currentTime;h = parseInt(t/3600); hh = h > 0 ? h+':' : '';m = parseInt((t-h*3600)/60); mm = m > 9 ? m :'0'+m;s = parseInt(t-h*3600-m*60); ss = s > 9 ? s : '0'+s;this.timebox.innerHTML = hh+mm+':'+ss;this.timer = setTimeout(function(){Player.time();}, 500);},
+				pp    : function(){if(this.audio.paused){this.play();} else {this.pause();}},
+				mute  : function(){this.audio.muted = !this.audio.muted;this.updVol();}
+			};function $(e){return document.getElementById(e);}
+			Player.init($('audio'), $('pp'), $('time'), $('volicon'), $('vbar'), $('stationname'));
+		</script>
+		
+	
+</body></html>
