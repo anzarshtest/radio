@@ -372,6 +372,9 @@ input::-ms-tooltip {
     display: none; }
 
   .soc {
+    display: none; }
+
+  .arrow-prev, .arrow-next {
     display: none; } }
 
 /*# sourceMappingURL=style.css.map */
