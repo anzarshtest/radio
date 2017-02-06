@@ -25,6 +25,23 @@ a, a:hover, a:active, a:focus {
   -webkit-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out; }
 
+.load {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  opacity: 1;
+  background: #fff; }
+  .load .img-box-preload {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); }
+
 .current {
   position: absolute;
   top: 0;

@@ -1,13 +1,13 @@
 $(document).ready(function(){
+    $('.load').animate({'opacity': '0', 'z-index': '0'}, 300);
     $('.radious a').click(function(){
         $('.radious a').removeClass('active');
         $(this).addClass('active');
+        return false;
     });
     $('.controls a').click(function(){
         $('.controls a').removeClass('active');
         $(this).addClass('active');
-    });
-    $('.controls a').click(function(){
         var slide = $(this).attr('href');
         var item;
         var slides = $('.slide');
