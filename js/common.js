@@ -20,6 +20,24 @@ $(document).ready(function(){
         $(this).addClass('active');
         return false;
     });
+    var slide_move = function(next, item, slide){
+        var slides = $('.slide');
+        if(next){
+            slides.eq(slides.length-1).after(slides.eq(0));
+        } else {
+            slides.eq(0).before(slides.eq(slides.length-1));
+        }
+        slides = $('.slide');
+        slides.each(function(i, j){
+            if('#'+$(this).attr('id') == slide){
+                item = i;
+            }
+        });
+        slides.removeClass('current next prev');
+        slides.eq(item).addClass('current');
+        slides.eq((item+1)%slides.length).addClass('next');
+        slides.eq(item-1).addClass('prev');
+    }
     $('.controls a').click(function(){
         $('.controls a').removeClass('active');
         $(this).addClass('active');
@@ -36,23 +54,35 @@ $(document).ready(function(){
             if(slides.eq(item).hasClass('prev')){
                 next = false;
             }
-            if(next){
-                slides.eq(slides.length-1).after(slides.eq(0));
-            } else {
-                slides.eq(0).before(slides.eq(slides.length-1));
-            }
-            slides = $('.slide');
-            slides.each(function(i, j){
-                if('#'+$(this).attr('id') == slide){
-                    item = i;
-                }
-            });
-            slides.removeClass('current next prev');
-            slides.eq(item).addClass('current');
-            slides.eq((item+1)%slides.length).addClass('next');
-            slides.eq(item-1).addClass('prev');
+            slide_move(next, item, slide);
         }
         return false;
+    });
+    $('.arrow-prev').click(function(){
+        var item;
+        var controls = $('.controls a');
+        controls.each(function(i,j){
+            if($(this).hasClass('active')){
+                item = i-1;
+            }
+        });
+        controls.removeClass('active');
+        controls.eq(item).addClass('active');
+        var slide = controls.eq(item).attr('href');
+        slide_move(false, item, slide);
+    });
+    $('.arrow-next').click(function(){
+        var item;
+        var controls = $('.controls a');
+        controls.each(function(i,j){
+            if($(this).hasClass('active')){
+                item = (i+1)%controls.length;
+            }
+        });
+        controls.removeClass('active');
+        controls.eq(item).addClass('active');
+        var slide = controls.eq(item).attr('href');
+        slide_move(true, item, slide);
     });
 });
 
