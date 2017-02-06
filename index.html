@@ -35,11 +35,6 @@
     }(document, 'script', 'facebook-jssdk'));</script>
     <div class="wrapper">
         <div class="slider">
-            <!-- <div id="slide0" class="slide0 load">
-                <div class="img-box-preload">
-                    <img src="img/loader.gif" alt="load">
-                </div>
-            </div> -->
             <div id="slide3" class="slide slide3 prev"></div>
             <div id="slide1" class="slide slide1 current"></div>
             <div id="slide2" class="slide slide2 next"></div>
@@ -62,16 +57,14 @@
         <a href="http://zvuk.bz/#" onclick="Player.track(this);return false;" data-uri="http://dorognoe.hostingradio.ru:8000/radio" data-title="Дорожное радио"><img src="img/dr.png" alt="rr"></a><a href="http://zvuk.bz/#" onclick="Player.track(this);return false;" data-uri="http://online.radiorecord.ru:8102/sd90_128" data-title="Супер-дискотека 90х"><img src="img/sd.png" alt="sd"></a><a href="http://zvuk.bz/#" onclick="Player.track(this);return false;" data-uri="http://icecast.russkoeradio.cdnvideo.ru/rr.mp3" data-title="Русское радио"><img src="img/rr.png" alt="dr"></a>
     </div>
     <div class="soc">
-        <!-- Put this script tag to the <head> of your page -->
         <script type="text/javascript" src="//vk.com/js/api/openapi.js?139"></script>
-
-        <script type="text/javascript">
+       <script type="text/javascript">
           VK.init({apiId: 5861271, onlyWidgets: true});
         </script>
 
-        <!-- Put this div tag to the place, where the Like block will be -->
         <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="100px" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
         <div id="vk_like"></div>
+        
         <script type="text/javascript">
         VK.Widgets.Like("vk_like", {type: "mini"});
         </script>
