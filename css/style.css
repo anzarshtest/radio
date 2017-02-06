@@ -34,8 +34,8 @@ a, a:hover, a:active, a:focus {
   background-size: cover; }
 
 .slide {
-  -webkit-transition: all 1s ease-in-out;
-  transition: all 1s ease-in-out; }
+  -webkit-transition: all .8s ease-in-out;
+  transition: all .8s ease-in-out; }
 
 .load {
   position: absolute;
