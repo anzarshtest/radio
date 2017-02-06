@@ -135,6 +135,13 @@ a, a:hover, a:active, a:focus {
   .radious .active {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.45); }
 
+.soc {
+  position: absolute;
+  top: 23px;
+  right: 23px;
+  z-index: 6;
+  font-size: 0; }
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -296,5 +303,9 @@ input::-ms-fill-upper {
 
 input::-ms-tooltip {
   display: none; }
+
+@media only screen and (max-width: 768px) {
+  #player #volicon, #player #vbar {
+    display: none; } }
 
 /*# sourceMappingURL=style.css.map */

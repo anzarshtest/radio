@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<title>Радио</title>
+    <meta property="og:url"           content="http://zvuk.bz/" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="Радио" />
+    <meta property="og:description"   content="Дорожное радио, Супер-дискотека 90х, Русское радио" />
+    <meta property="og:image"         content="http://zvuk.bz/path/image.jpg" />
 	<meta content="" name="description">
 	<meta content="" name="keywords">
 	<link href="img/favicon.png" rel="icon" type="image/x-icon">
@@ -41,7 +46,18 @@
         <a href="http://zvuk.bz/#" onclick="Player.track(this);return false;" data-uri="http://dorognoe.hostingradio.ru:8000/radio" data-title="Дорожное радио"><img src="img/dr.png" alt="rr"></a><a href="http://zvuk.bz/#" onclick="Player.track(this);return false;" data-uri="http://online.radiorecord.ru:8102/sd90_128" data-title="Супер-дискотека 90х"><img src="img/sd.png" alt="sd"></a><a href="http://zvuk.bz/#" onclick="Player.track(this);return false;" data-uri="http://icecast.russkoeradio.cdnvideo.ru/rr.mp3" data-title="Русское радио"><img src="img/rr.png" alt="dr"></a>
     </div>
     <div class="soc">
-        
+        <!-- Put this script tag to the <head> of your page -->
+        <script type="text/javascript" src="//vk.com/js/api/openapi.js?139"></script>
+
+        <script type="text/javascript">
+          VK.init({apiId: 5861271, onlyWidgets: true});
+        </script>
+
+        <!-- Put this div tag to the place, where the Like block will be -->
+        <div id="vk_like"></div>
+        <script type="text/javascript">
+        VK.Widgets.Like("vk_like", {type: "mini"});
+        </script>
     </div>
     <div class="footer">
         <div id="player">
