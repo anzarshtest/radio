@@ -72,12 +72,12 @@
     <div class="footer">
         <div id="player">
             <audio id="audio"></audio>
-            <div id="pp" class="play" onclick="Player.pp();"><img class="img-play" src="img/play.png" alt="play"><img class="img-pause" src="img/pause.png" alt="pause"></div>
+            <div id="pp" class="play" onclick="Player.pp();"><img width="24" height="28" class="img-play" src="img/play.png" alt="play"><img width="19" height="27" class="img-pause" src="img/pause.png" alt="pause"></div>
             <div id="pbar">
                 <span id="time"></span>
                 <span id="stationname"></span>
             </div>
-            <div id="volicon" onclick="Player.mute();" class="high"><img class="img-high" src="img/volume-high.png" alt="volume-high"><img class="img-medium" src="img/volume-medium.png" alt="volume-medium"><img class="img-low" src="img/volume-low.png" alt="volume-low"><img class="img-muted" src="img/muted.png" alt="muted"></div>
+            <div id="volicon" onclick="Player.mute();" class="high"><img width="30" height="21" class="img-high" src="img/volume-high.png" alt="volume-high"><img width="29" height="20" class="img-medium" src="img/volume-medium.png" alt="volume-medium"><img width="23" height="17" class="img-low" src="img/volume-low.png" alt="volume-low"><img width="34" height="21" class="img-muted" src="img/muted.png" alt="muted"></div>
             <div id="vbar"><input type="range" min="0" max="100" onchange="Player.vol(this.value);" oninput="Player.vol(this.value);" value="Player.audio.volume*100"></div>
         </div>
     </div>
